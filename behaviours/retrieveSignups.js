@@ -34,7 +34,7 @@ function buildSkinTable(id, signups) {
                 tr = tr_signups[index];
             }
 
-            td = document.createElement("td");
+            let td = document.createElement("td");
             let content;
             if (signup.IsPaid == 1) {
                 content = document.createTextNode(`${index + 1}. ${signup.Username} (PAID)`);
@@ -47,7 +47,7 @@ function buildSkinTable(id, signups) {
     });
 }
 
-function retrieveBySkinId(id) {
+export function retrieveBySkinId(id) {
     const request = new Request(`https://signup-retrieval-worker.auvtrefraccents.workers.dev/?accentId=${id}`, {
         method: "GET",
     });

@@ -26,90 +26,92 @@
                 <p>You can of course always use the <a href="#">thread</a> as well. :)</p>
             </div>
 
-            <div id="container">
-                <section id="preorders">
-                    <form data-accent="5" onsubmit="addUser(event)">
-                        <figure>
+            <section id="preorders" class="active">
+                <form data-accent="5">
+                    <figure>
+                        <div class="img-container">
                             <img src="./assets/accents/5.png" />
-                            <figcaption>
-                                <h2>three follies 550g</h2>
-                                <h4>status: submitted</h4>
-                                <h3>accent, chorus (m)</h3>
-                            </figcaption>
-                        </figure>
+                        </div>
+                        <figcaption>
+                            <h2>three follies 550g</h2>
+                            <h4>status: submitted</h4>
+                            <h3>accent, chorus (m)</h3>
+                        </figcaption>
+                    </figure>
 
-                        <input class="signup-username" type="text" />
-                        <input type="submit" value="preorder" />
-                    </form>
+                    <input class="signup-username" placeholder="your username" type="text" />
+                    <input type="submit" value="preorder" />
+                </form>
 
-                    <table data-accent="5">
-                        <tr></tr>
-                    </table>
-                </section>
+                <table data-accent="5">
+                    <tr></tr>
+                </table>
+            </section>
 
-                <section id="reprints">
-                    <form data-accent="1" onsubmit="addUser(event)">
-                        <figure>
-                            <img src="./assets/accents/1.png" />
-                            <figcaption>
-                                <h2>dubious offering 550g</h2>
-                                <h3>accent, obelisk (h)</h3>
-                            </figcaption>
-                        </figure>
+            <section id="reprints" class="inactive">
+                <form data-accent="1">
+                    <figure>
+                        <div class="img-container"><img src="./assets/accents/1.png" /></div>
 
-                        <input class="signup-username" type="text" />
-                        <input type="submit" value="sign up (reprints)" />
-                    </form>
+                        <figcaption>
+                            <h2>dubious offering 550g</h2>
+                            <h3>accent, obelisk (h)</h3>
+                        </figcaption>
+                    </figure>
 
-                    <table data-accent="1">
-                        <tr></tr>
-                    </table>
+                    <input class="signup-username" placeholder="your username" type="text" />
+                    <input type="submit" value="sign up (reprints)" />
+                </form>
 
-                    <form data-accent="2" onsubmit="addUser(event)">
-                        <figure>
-                            <img src="./assets/accents/2.png" />
-                            <figcaption>
-                                <h2>vinnie 550g</h2>
-                                <h3>accent, bogsneak (f)</h3>
-                            </figcaption>
-                        </figure>
+                <table data-accent="1">
+                    <tr></tr>
+                </table>
 
-                        <input class="signup-username" type="text" />
-                        <input type="submit" value="sign up (reprints)" />
-                    </form>
+                <form data-accent="2">
+                    <figure>
+                        <div class="img-container"><img src="./assets/accents/2.png" /></div>
+                        <figcaption>
+                            <h2>vinnie 550g</h2>
+                            <h3>accent, bogsneak (f)</h3>
+                        </figcaption>
+                    </figure>
 
-                    <table data-accent="2">
-                        <tr></tr>
-                    </table>
+                    <input class="signup-username" placeholder="your username" type="text" />
+                    <input type="submit" value="sign up (reprints)" />
+                </form>
 
-                    <form data-accent="3" onsubmit="addUser(event)">
-                        <figure>
-                            <img src="./assets/accents/3.png" />
-                            <figcaption>
-                                <h2>adverserial presence 550g</h2>
-                                <h3>accent, sandsurge (m)</h3>
-                            </figcaption>
-                        </figure>
+                <table data-accent="2">
+                    <tr></tr>
+                </table>
 
-                        <input class="signup-username" type="text" />
-                        <input type="submit" value="sign up (reprints)" />
-                    </form>
+                <form data-accent="3">
+                    <figure>
+                        <div class="img-container"><img src="./assets/accents/3.png" /></div>
+                        <figcaption>
+                            <h2>adverserial presence 550g</h2>
+                            <h3>accent, sandsurge (m)</h3>
+                        </figcaption>
+                    </figure>
 
-                    <table data-accent="3">
-                        <tr></tr>
-                    </table>
-                </section>
-            </div>
+                    <input class="signup-username" placeholder="your username" type="text" />
+                    <input type="submit" value="sign up (reprints)" />
+                </form>
+
+                <table data-accent="3">
+                    <tr></tr>
+                </table>
+            </section>
         </div>
 
         <nav id="nav-in">
             <ul>
-                <li><a href="#preorders">new</a></li>
-                <li><a href="#reprints">shelved</a></li>
+                <li onclick="tabNew()"><a>new</a></li>
+                <li onclick="tabShelved()"><a>shelved</a></li>
             </ul>
         </nav>
 
-        <!-- <script src="./behaviours/addUser.js"></script>
-        <script src="./behaviours/retrieveSignups.js"></script> -->
+        <script src="behaviours/tab.js"></script>
+        <script type="module" src="./behaviours/addUser.js"></script>
+        <script type="module" src="./behaviours/retrieveSignups.js"></script>
     </body>
 </html>

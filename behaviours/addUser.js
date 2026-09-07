@@ -1,7 +1,13 @@
+import { retrieveBySkinId } from "./retrieveSignups.js";
+
+document.querySelectorAll("form[data-accent]").forEach((form) => {
+    form.addEventListener("submit", addUser);
+});
+
 function addUser(e) {
     e.preventDefault();
-    const accent = event.currentTarget.dataset.accent;
-    const inputUsername = event.currentTarget.querySelector(".signup-username").value;
+    const accent = e.currentTarget.dataset.accent;
+    const inputUsername = e.currentTarget.querySelector(".signup-username").value;
 
     if (!accent) return;
 
@@ -20,7 +26,8 @@ function addUser(e) {
     fetch(request).then((response) => {
         response.json().then((json) => {
             if (json.success) {
-                // call build skin table
+                clearTable(accent);
+                retrieveBySkinId(accent);
             }
         });
     });
@@ -67,4 +74,10 @@ function validateUser(username) {
     if (username.split("").some((c) => specialChars.includes(c))) return false;
 
     return true;
+}
+
+function clearTable(skinId) {
+    const table = document.querySelector(`table[data-accent='${skinId}']`);
+    const tr = document.createElement("tr");
+    table.replaceChildren(tr);
 }
