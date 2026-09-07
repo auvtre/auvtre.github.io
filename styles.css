@@ -290,9 +290,3 @@ todo: table styling
         }
     }
 }
-
-@media screen and (max-width: 1000px) {
-    body {
-        background: red !important;
-    }
-}
