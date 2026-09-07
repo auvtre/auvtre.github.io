@@ -1,21 +1,115 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>auvtre's accents</h1>
+<!doctype html>
 
-    <p>
-      This is where you'll be able to sign up for prints or reprints of my
-      public accents *_*
-    </p>
+<html>
+    <head>
+        <title>Auvtre's Accents</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div id="content">
+            <h1><em>auvtre's</em> accents</h1>
 
-    <h2>How this works</h2>
-    For you it basically works just like a spreadsheet! You can add your name
-    into the slots, or remove it again if you accidentally signed up for the
-    wrong one. If you cannot remove your name you can always shoot me a pm on
-    flight rising @auvtre
-  </body>
+            <div id="nav-out">
+                <a href="#">thread</a>
+                <a href="#">personal message</a>
+                <a href="#">tumblor</a>
+            </div>
+
+            <div>
+                <p>
+                    Hello! This is my little site where you can sign up for preorders of new accents as well as reprints of shelved accents. The site works just
+                    like a google sheet, all you have to do is add your username to the skin that you want!
+                </p>
+
+                <p>You can of course always use the <a href="#">thread</a> as well. :)</p>
+            </div>
+
+            <div id="container">
+                <section id="preorders">
+                    <form data-accent="5" onsubmit="addUser(event)">
+                        <figure>
+                            <img src="./assets/accents/5.png" />
+                            <figcaption>
+                                <h2>three follies 550g</h2>
+                                <h4>status: submitted</h4>
+                                <h3>accent, chorus (m)</h3>
+                            </figcaption>
+                        </figure>
+
+                        <input class="signup-username" type="text" />
+                        <input type="submit" value="preorder" />
+                    </form>
+
+                    <table data-accent="5">
+                        <tr></tr>
+                    </table>
+                </section>
+
+                <section id="reprints">
+                    <form data-accent="1" onsubmit="addUser(event)">
+                        <figure>
+                            <img src="./assets/accents/1.png" />
+                            <figcaption>
+                                <h2>dubious offering 550g</h2>
+                                <h3>accent, obelisk (h)</h3>
+                            </figcaption>
+                        </figure>
+
+                        <input class="signup-username" type="text" />
+                        <input type="submit" value="sign up (reprints)" />
+                    </form>
+
+                    <table data-accent="1">
+                        <tr></tr>
+                    </table>
+
+                    <form data-accent="2" onsubmit="addUser(event)">
+                        <figure>
+                            <img src="./assets/accents/2.png" />
+                            <figcaption>
+                                <h2>vinnie 550g</h2>
+                                <h3>accent, bogsneak (f)</h3>
+                            </figcaption>
+                        </figure>
+
+                        <input class="signup-username" type="text" />
+                        <input type="submit" value="sign up (reprints)" />
+                    </form>
+
+                    <table data-accent="2">
+                        <tr></tr>
+                    </table>
+
+                    <form data-accent="3" onsubmit="addUser(event)">
+                        <figure>
+                            <img src="./assets/accents/3.png" />
+                            <figcaption>
+                                <h2>adverserial presence 550g</h2>
+                                <h3>accent, sandsurge (m)</h3>
+                            </figcaption>
+                        </figure>
+
+                        <input class="signup-username" type="text" />
+                        <input type="submit" value="sign up (reprints)" />
+                    </form>
+
+                    <table data-accent="3">
+                        <tr></tr>
+                    </table>
+                </section>
+            </div>
+        </div>
+
+        <nav id="nav-in">
+            <ul>
+                <li><a href="#preorders">new</a></li>
+                <li><a href="#reprints">shelved</a></li>
+            </ul>
+        </nav>
+
+        <!-- <script src="./behaviours/addUser.js"></script>
+        <script src="./behaviours/retrieveSignups.js"></script> -->
+    </body>
 </html>
