@@ -26,7 +26,7 @@
                 <p>You can of course always use the <a href="#">thread</a> as well. :)</p>
             </div>
 
-            <section id="preorders" class="active">
+            <section id="preorders" class="active-content">
                 <form data-accent="5">
                     <figure>
                         <div class="img-container">
@@ -39,16 +39,19 @@
                         </figcaption>
                     </figure>
 
-                    <input class="signup-username" placeholder="your username" type="text" />
-                    <input type="submit" value="preorder" />
+                    <div class="signup-inputs">
+                        <input class="signup-username" placeholder="your username" type="text" />
+                        <input type="submit" value="preorder" />
+                    </div>
                 </form>
 
                 <table data-accent="5">
-                    <tr></tr>
+                    <thead></thead>
+                    <tbody></tbody>
                 </table>
             </section>
 
-            <section id="reprints" class="inactive">
+            <section id="reprints" class="inactive-content">
                 <form data-accent="1">
                     <figure>
                         <div class="img-container"><img src="./assets/accents/1.png" /></div>
@@ -59,8 +62,10 @@
                         </figcaption>
                     </figure>
 
-                    <input class="signup-username" placeholder="your username" type="text" />
-                    <input type="submit" value="sign up (reprints)" />
+                    <div class="signup-inputs">
+                        <input class="signup-username" placeholder="your username" type="text" />
+                        <input type="submit" value="sign up (reprints)" />
+                    </div>
                 </form>
 
                 <table data-accent="1">
@@ -76,8 +81,10 @@
                         </figcaption>
                     </figure>
 
-                    <input class="signup-username" placeholder="your username" type="text" />
-                    <input type="submit" value="sign up (reprints)" />
+                    <div class="signup-inputs">
+                        <input class="signup-username" placeholder="your username" type="text" />
+                        <input type="submit" value="sign up (reprints)" />
+                    </div>
                 </form>
 
                 <table data-accent="2">
@@ -93,8 +100,10 @@
                         </figcaption>
                     </figure>
 
-                    <input class="signup-username" placeholder="your username" type="text" />
-                    <input type="submit" value="sign up (reprints)" />
+                    <div class="signup-inputs">
+                        <input class="signup-username" placeholder="your username" type="text" />
+                        <input type="submit" value="sign up (reprints)" />
+                    </div>
                 </form>
 
                 <table data-accent="3">
@@ -105,8 +114,8 @@
 
         <nav id="nav-in">
             <ul>
-                <li onclick="tabNew()"><a>new</a></li>
-                <li onclick="tabShelved()"><a>shelved</a></li>
+                <li onclick="tabNew()" id="preorders-tab" class="active-tab"><a>new</a></li>
+                <li onclick="tabShelved()" id="reprints-tab"><a>shelved</a></li>
             </ul>
         </nav>
 

@@ -19,7 +19,7 @@
 }
 
 body {
-    background-color: var(--primary-background);
+    background-color: var(--primary-foreground);
     display: flex;
     flex-direction: row;
     color: var(--primary-foreground);
@@ -40,6 +40,7 @@ a {
 p {
     a {
         position: relative;
+        border: 1px solid var(--muted-foreground);
     }
 
     a::after {
@@ -99,19 +100,30 @@ form {
     height: 350px;
 }
 
+.signup-inputs {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    height: 2.5em;
+    max-width: 800px;
+}
+
 input {
     padding: var(--default-padding);
+    background-color: var(--input-background);
+    border: 1px solid var(--primary-foreground);
+    flex: 1;
 }
 
 input[type="submit"] {
     text-transform: uppercase;
     background-color: var(--accent-background);
-    border: 1px solid var(--primary-foreground);
 }
 
 form {
     img {
         float: left;
+        max-width: 100%;
         margin-right: 2em;
     }
 }
@@ -126,6 +138,7 @@ todo: table styling
 */
 
 #content {
+    background-color: var(--primary-background);
     max-height: 100vh;
     overflow: auto;
     display: flex;
@@ -184,12 +197,14 @@ todo: table styling
         list-style: none;
         height: 100%;
         li {
-            border-radius: 0px 10px 10px 0px;
             height: 30%;
-
+            width: 80%;
+            padding-top: 20px;
+            border-radius: 0px 10px 10px 0px;
             a {
+                max-width: 100%;
                 padding: var(--default-padding);
-                padding-top: 20px;
+                box-sizing: border-box;
                 display: block;
                 writing-mode: vertical-rl;
             }
@@ -197,6 +212,7 @@ todo: table styling
 
         li:hover {
             cursor: pointer;
+            width: 100%;
         }
 
         li:first-child {
@@ -209,12 +225,16 @@ todo: table styling
     }
 }
 
-.active {
+.active-content {
     display: flex;
 }
 
-.inactive {
+.inactive-content {
     display: none;
+}
+
+.active-tab {
+    width: 100% !important;
 }
 
 @media screen and (max-width: 1000px) {
@@ -231,12 +251,27 @@ todo: table styling
     #nav-in {
         ul {
             flex-direction: row;
+            align-items: end;
             li {
                 border-radius: 10px 10px 0px 0px;
+                width: auto;
                 min-width: 30%;
+                padding-top: 0px;
+                height: 100%;
                 a {
                     writing-mode: horizontal-tb;
+                    display: inline-block;
                 }
+            }
+
+            li:hover {
+                width: auto;
+                padding-bottom: 1em;
+            }
+
+            .active-tab {
+                width: auto !important;
+                padding-bottom: 1em;
             }
         }
     }
@@ -288,5 +323,9 @@ todo: table styling
         a {
             font-size: 16px;
         }
+    }
+
+    #content {
+        padding-bottom: var(--default-body-padding);
     }
 }

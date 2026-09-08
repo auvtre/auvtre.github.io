@@ -78,6 +78,7 @@ function validateUser(username) {
 
 function clearTable(skinId) {
     const table = document.querySelector(`table[data-accent='${skinId}']`);
-    const tr = document.createElement("tr");
-    table.replaceChildren(tr);
+    const thead = document.createElement("thead");
+    const tbody = document.createElement("tbody");
+    table.replaceChildren(thead, tbody);
 }

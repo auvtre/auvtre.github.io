@@ -13,13 +13,16 @@ function buildSkinTable(id, signups) {
     const table = document.querySelector(`table[data-accent='${id}']`);
     const runIds = [...new Set(signups.map((obj) => obj.RunId))];
     let tr_signups = [];
+    const thead = table.querySelector("thead");
+    const tbody = table.querySelector("tbody");
+    const thead_tr = document.createElement("tr");
+    thead.appendChild(thead_tr);
 
     runIds.forEach((run, runIndex) => {
         // create a header for the run
-        const tr_th = table.querySelector("tr");
         const th = document.createElement("th");
         th.appendChild(document.createTextNode(`Run: ${runIndex + 1}`));
-        tr_th.appendChild(th);
+        thead_tr.appendChild(th);
 
         // get signups for the run
         const runSignups = [...signups.filter((obj) => obj.RunId === run)];
@@ -28,7 +31,7 @@ function buildSkinTable(id, signups) {
             let tr;
             if (runIndex === 0) {
                 tr = document.createElement("tr");
-                table.appendChild(tr);
+                tbody.appendChild(tr);
                 tr_signups[index] = tr;
             } else {
                 tr = tr_signups[index];
