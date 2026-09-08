@@ -127,17 +127,34 @@ section {
 table {
     border-collapse: collapse;
     text-align: left;
+    max-width: 350px;
 
     tr {
         * {
             text-transform: lowercase;
-            max-width: 1px;
         }
     }
 
     th {
         text-transform: uppercase;
         color: var(--muted-foreground);
+    }
+
+    td {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1em;
+
+        button {
+            flex: 1;
+            max-width: 125px;
+            text-transform: uppercase;
+            padding: var(--default-padding);
+            background-color: var(--input-background);
+            border: 1px solid var(--muted-foreground);
+        }
     }
 }
 

@@ -1,3 +1,5 @@
+import { deleteUser } from "./deleteUser.js";
+
 getActiveAccents();
 
 function getActiveAccents() {
@@ -16,6 +18,8 @@ function buildSkinTable(id, signups) {
     const thead = table.querySelector("thead");
     const tbody = table.querySelector("tbody");
     const thead_tr = document.createElement("tr");
+    const local_signupIds = JSON.parse(localStorage.getItem(`${id}_SIGNUPS`) || "[]");
+    const local_deletionKeys = JSON.parse(localStorage.getItem(`${id}_LDK`) || "[]");
     thead.appendChild(thead_tr);
 
     runIds.forEach((run, runIndex) => {
@@ -44,7 +48,21 @@ function buildSkinTable(id, signups) {
             } else {
                 content = document.createTextNode(`${index + 1}. ${signup.Username}`);
             }
+
             td.appendChild(content);
+
+            if (local_signupIds !== null && local_signupIds.includes(signup.Id)) {
+                const index = local_signupIds.indexOf(signup.Id);
+                const btn = document.createElement("button");
+                btn.innerText = "cancel order";
+
+                // add a button with the deleteUser event Listener
+                // pass id and local deletion key to  the deleteUser event
+                btn.addEventListener("click", () => deleteUser(id, local_signupIds[index], local_deletionKeys[index]));
+
+                td.appendChild(btn);
+            }
+
             tr.appendChild(td);
         });
     });

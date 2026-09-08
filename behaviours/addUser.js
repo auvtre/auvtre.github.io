@@ -1,4 +1,5 @@
 import { retrieveBySkinId } from "./retrieveSignups.js";
+import { clearErrors, clearTable, displayError } from "./utils.js";
 
 document.querySelectorAll("form[data-accent]").forEach((form) => {
     form.addEventListener("submit", addUser);
@@ -32,6 +33,7 @@ function addUser(e) {
     fetch(request).then((response) => {
         response.json().then((json) => {
             if (json.success) {
+                updateLocalStorage(accent, json.localDeletionData);
                 clearTable(accent);
                 retrieveBySkinId(accent);
             } else {
@@ -54,27 +56,13 @@ function validateUser(username) {
     return true;
 }
 
-function clearTable(skinId) {
-    const table = document.querySelector(`table[data-accent='${skinId}']`);
-    const thead = document.createElement("thead");
-    const tbody = document.createElement("tbody");
-    table.replaceChildren(thead, tbody);
-}
+function updateLocalStorage(skinId, localDeletionData) {
+    let signups = JSON.parse(localStorage.getItem(`${skinId}_SIGNUPS`) || "[]");
+    let ldk = JSON.parse(localStorage.getItem(`${skinId}_LDK`) || "[]");
 
-function clearErrors() {
-    const errorDivs = document.querySelectorAll(`div.active-error`);
-    errorDivs.forEach((div) => {
-        div.innerHTML = "";
-        div.setAttribute("class", "inactive-error");
-    });
-}
+    signups.push(localDeletionData.id);
+    ldk.push(localDeletionData.localDeletionKey);
 
-function displayError(skinId, message) {
-    const errorDiv = document.querySelector(`div[data-error-accent='${skinId}']`);
-    errorDiv.setAttribute("class", "active-error");
-    const h4 = document.createElement("h4");
-    h4.innerText = "Sorry, your signup couldn't be completed";
-    const errorText = document.createElement("p");
-    errorText.innerText = message;
-    errorDiv.append(h4, errorText);
+    localStorage.setItem(`${skinId}_SIGNUPS`, JSON.stringify(signups));
+    localStorage.setItem(`${skinId}_LDK`, JSON.stringify(ldk));
 }
