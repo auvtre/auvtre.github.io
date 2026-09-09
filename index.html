@@ -6,6 +6,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="styles.css" />
+        <link rel="icon" type="image/x-icon" href="assets/vinnie.png" />
     </head>
     <body>
         <div id="content">
@@ -127,8 +128,8 @@
 
         <nav id="nav-in">
             <ul>
-                <li onclick="tabNew()" id="preorders-tab" class="active-tab"><a>new</a></li>
-                <li onclick="tabShelved()" id="reprints-tab"><a>shelved</a></li>
+                <li tabindex="0" onkeydown="tabNew()" onclick="tabNew()" id="preorders-tab" class="active-tab"><a>new</a></li>
+                <li tabindex="0" onkeydown="tabShelved()" onclick="tabShelved()" id="reprints-tab"><a>shelved</a></li>
             </ul>
         </nav>
 
