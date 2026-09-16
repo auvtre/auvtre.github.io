@@ -42,6 +42,8 @@ function buildSkinTable(id, signups) {
             }
 
             let td = document.createElement("td");
+            let wrapper_div = document.createElement("div");
+            wrapper_div.className = "cell-content";
             let content;
             if (signup.IsPaid == 1) {
                 content = document.createTextNode(`${index + 1}. ${signup.Username} (PAID)`);
@@ -49,7 +51,7 @@ function buildSkinTable(id, signups) {
                 content = document.createTextNode(`${index + 1}. ${signup.Username}`);
             }
 
-            td.appendChild(content);
+            wrapper_div.appendChild(content);
 
             if (local_signupIds !== null && local_signupIds.includes(signup.Id)) {
                 const index = local_signupIds.indexOf(signup.Id);
@@ -60,9 +62,10 @@ function buildSkinTable(id, signups) {
                 // pass id and local deletion key to  the deleteUser event
                 btn.addEventListener("click", () => deleteUser(id, local_signupIds[index], local_deletionKeys[index]));
 
-                td.appendChild(btn);
+                wrapper_div.appendChild(btn);
             }
 
+            td.appendChild(wrapper_div);
             tr.appendChild(td);
         });
     });
