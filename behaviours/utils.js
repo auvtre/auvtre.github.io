@@ -1,8 +1,6 @@
 export function clearTable(skinId) {
-    const table = document.querySelector(`table[data-accent='${skinId}']`);
-    const thead = document.createElement("thead");
-    const tbody = document.createElement("tbody");
-    table.replaceChildren(thead, tbody);
+    const table = document.querySelector(`div[data-accent='${skinId}']`);
+    table.innerHTML = "";
 }
 
 export function clearErrors() {
