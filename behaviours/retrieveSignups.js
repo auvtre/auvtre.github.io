@@ -14,7 +14,6 @@ function getActiveAccents() {
 function buildSkinTable(id, signups) {
     const table = document.querySelector(`div[data-accent='${id}']`);
     const runIds = [...new Set(signups.map((obj) => obj.RunId))];
-    let tr_signups = [];
     const local_signupIds = JSON.parse(localStorage.getItem(`${id}_SIGNUPS`) || "[]");
     const local_deletionKeys = JSON.parse(localStorage.getItem(`${id}_LDK`) || "[]");
 
@@ -39,7 +38,7 @@ function buildSkinTable(id, signups) {
 
             cell.appendChild(content);
 
-            if (local_signupIds !== null && local_signupIds.includes(signup.Id)) {
+            if (local_signupIds !== null && local_signupIds.includes(signup.Id) && Boolean(signup.CanDelete)) {
                 const index = local_signupIds.indexOf(signup.Id);
                 const btn = document.createElement("button");
                 btn.innerText = "cancel order";
